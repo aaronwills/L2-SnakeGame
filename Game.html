@@ -8,7 +8,7 @@
     margin: 0;
   }
   body {
-    background: white;
+    background: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,6 +26,22 @@ var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
 var grid = 16;
 var count = 0;
+    
+var snake = {
+  x: 160,
+  y: 160,
+  
+  dx: grid,
+  dy: 0,
+  
+  cells: [],
+    
+  maxCells: 4
+}; 
+    var apple = {
+  x: 320,
+  y: 320
+};
   
 
 </script>
