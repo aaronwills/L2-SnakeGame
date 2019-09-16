@@ -27,8 +27,55 @@ var context = canvas.getContext('2d');
 var grid = 16;
 var count = 0;
     
-
-
+var snake = {
+  x: 160,
+  y: 160,
+  
+  // snake moves one grid length every frame in either direction x and or y. //
+  dx: grid,
+  dy: 0,
+  
+  // keep track of all grids the snake body occupies //
+  cells: [],
+  
+  // length of the snake. grows when eating an apple //
+  maxCells: 4
+};
+var apple = {
+  x: 320,
+  y: 320
+};
+    // draw apple
+  context.fillStyle = 'red';
+  context.fillRect(apple.x, apple.y, grid-1, grid-1);
+  // draw snake one cell at a time
+  context.fillStyle = 'green';
+  snake.cells.forEach(function(cell, index) {
+    
+    // left arrow key //
+  if (e.which === 37 && snake.dx === 0) {
+    snake.dx = -grid;
+    snake.dy = 0;
+  }
+  // up arrow key //
+  else if (e.which === 38 && snake.dy === 0) {
+    snake.dy = -grid;
+    snake.dx = 0;
+  }
+  // right arrow key//
+  else if (e.which === 39 && snake.dx === 0) {
+    snake.dx = grid;
+    snake.dy = 0;
+  }
+  // down arrow key //
+  else if (e.which === 40 && snake.dy === 0) {
+    snake.dy = grid;
+    snake.dx = 0;
+  }
+});
+// start the game //
+requestAnimationFrame(loop);
+    
 </script>
 </body>
 </html>
